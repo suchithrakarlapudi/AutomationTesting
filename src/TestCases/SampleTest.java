@@ -17,28 +17,20 @@ import io.github.bonigarcia.wdm.FirefoxDriverManager;
 class SampleTest {
 	
 	@Test
-	public void site_header_is_on_home_page()
-	{
-		/*
-		 * FirefoxDriverManager.firefoxdriver().setup(); WebDriver browser = new
-		 * FirefoxDriver();
-		 */
+	public void dashboard_site() {
 		ChromeDriverManager.chromedriver().setup();
 		WebDriver browser = new ChromeDriver();
-		
-		browser.get("https://www.gmail.com");
+
+		browser.get("https://dashboard.magicfix.in/");
 		browser.manage().window().maximize();
+
+		browser.findElement(By.xpath("//input[@id=\"login_userName\"]")).sendKeys("medari@gmail.com");
+		browser.findElement(By.xpath("//input[@id='login_password']")).sendKeys("medari");
+		browser.findElement(By.xpath("//span[text()='Log in']//ancestor::button")).click();
 		
-		browser.findElement(By.xpath("//input[@id='identifierId']")).sendKeys("suchithrakarlapudi");
-		browser.findElement(By.xpath("//div[@id='identifierNext']")).click();
-		
-		browser.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-		browser.findElement(By.xpath("//input[@name='password']")).sendKeys("password");
-		browser.findElement(By.xpath("//div[@id='passwordNext']")).click();
-		
-		 WebElement href = browser.findElement(By.xpath("//div[@id=':1t']"));
-				
-		assertTrue((href.isDisplayed()));
+		//WebElement href = browser.findElement(By.xpath("//img[@src=\"/static/media/aha_logo.a4f3c4c1.png\"]"));
+		//assertTrue((href.isDisplayed()));
+		//div[@class="coming-soon-content"]
 		browser.close();
 	}
 	
