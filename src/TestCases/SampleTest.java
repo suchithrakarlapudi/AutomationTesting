@@ -33,7 +33,7 @@ class SampleTest {
 		browser.findElement(By.xpath("//div[@id='identifierNext']")).click();
 		
 		browser.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-		browser.findElement(By.xpath("//input[@name='password']")).sendKeys("Karlapudi@557");
+		browser.findElement(By.xpath("//input[@name='password']")).sendKeys("password");
 		browser.findElement(By.xpath("//div[@id='passwordNext']")).click();
 		
 		 WebElement href = browser.findElement(By.xpath("//div[@id=':1t']"));
